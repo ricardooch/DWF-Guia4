@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+>
+<h:head>
+    <h:outputStylesheet name="css/bootstrap.min.css"/>
+    <title><h:outputText value="#{bundle.resultado}"/></title>
+</h:head>
+<h:body styleClass="container">
+    <h2> <h:outputText value="#{bundle.resultado}"/> </h2>
+    <b><h:outputText value="nombre:"/></b>
+    <h:outputText value="#{etiquetas.nombre}"/>
+    <br/>
+    <b><h:outputText value="apellidos:"/></b>
+    <h:outputText value="#{etiquetas.apellidos}"/>
+    <br/>
+    <b><h:outputText value="comentario:"/></b>
+    <h:outputText value="#{etiquetas.comentario}" />
+    <br/>
+    <b><h:outputText value="fumador:" /></b>
+    <c:if test="${etiquetas.fumador == true}">
+        <h:outputText value="es fumador "/>
+    </c:if>
+    <c:if test="${etiquetas.fumador == false }">
+        <h:outputText value="no es fumador"/>
+    </c:if>
+    <br/>
+    <b> <h:outputText value="Aficiones:"/></b>
+    <h:dataTable value="#{etiquetas.aficiones}" var="aficion" >
+        <h:column>
+            <h:outputText value="#{aficion}"/>
+        </h:column>
+    </h:dataTable>
+    <br/>
+    <b><h:outputText value="Tu profesión:"/></b>
+    <h:outputText value="#{etiquetas.profesion}"/>
+    <br/>
+    <h:outputText value="Estos son los lenguajes que conoces"/>
+    <h:dataTable value="#{etiquetas.lenguajes}" var="lenguaje">
+        <h:column>
+            <h:outputText value="#{lenguaje}"/>
+        </h:column>
+    </h:dataTable>
+</h:body>
+</html>
